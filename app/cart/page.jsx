@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 function Cart() {
   const router = useRouter();
   const { cart, setCart } = useContext(CartContext);
-  const { cartId, setCartId } = useContext(CartContext);
   const getTotalAmount = () => {
     let totalAmount = 0;
     cart.forEach((item) => {
@@ -27,16 +26,7 @@ function Cart() {
       });
   };
 
-//   const deleteCartItemFromList = (productId) => {
-//   CartApis.removeProductFromCart(cartId, productId) // cartId = رقم الكارت الحالي
-//     .then((res) => {
-//       console.log("Updated cart:", res);
-//       setCartItems(res.data.attributes.products.data); // تحدّث المنتجات من الرد الجديد
-//     })
-//     .catch((err) => {
-//       console.error("Error removing product:", err);
-//     });
-// };
+
 
   return (
     <section>
