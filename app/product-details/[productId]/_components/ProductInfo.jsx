@@ -29,7 +29,7 @@ const ProductInfo = ({ product }) => {
           setCart((oldCart) => [
             ...oldCart,
             {
-              id: res?.data?.data?.id,
+              id: res?.data?.data?.documentId,
               product,
             },
           ]);

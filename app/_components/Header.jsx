@@ -27,7 +27,7 @@ const Header = () => {
           setCart((oldCart) => [
             ...oldCart,
             {
-              id: citem.id,
+              id: citem.documentId,
               product: citem?.products[0],
             },
           ]);

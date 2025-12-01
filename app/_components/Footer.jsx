@@ -33,7 +33,7 @@ const Footer = () => {
               <ul className="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">
                 <li>
                   <a
-                    href="#"
+                    href="https://www.facebook.com/ltmobile.company/?locale=ar_AR"
                     rel="noreferrer"
                     target="_blank"
                     className="text-teal-700 transition hover:text-teal-700/75"
