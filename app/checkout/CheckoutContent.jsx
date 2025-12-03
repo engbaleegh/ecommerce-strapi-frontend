@@ -21,6 +21,7 @@ export default function Checkout() {
   const searchParams = useSearchParams();
   const amount = searchParams.get("amount") || "20.00";
   console.log("Amount from query:", amount);
+  console.log(cart)
 
   const handleCheckout = async () => {
     setLoading(true);
@@ -30,6 +31,13 @@ export default function Checkout() {
       // create new order
       // await createOrder();
 
+      const userEmail =
+        user?.primaryEmailAddress?.emailAddress ||
+        (user?.emailAddresses && user.emailAddresses[0]?.emailAddress) ||
+        user?.email;
+
+      const productIds = cart.map((item) => item?.product?.id).filter(Boolean);
+
       const response = await fetch("/api/create-checkout-session", {
         method: "POST",
         headers: {
@@ -37,7 +45,11 @@ export default function Checkout() {
         },
         // يمكنك إرسال بيانات إضافية هنا
         // body: JSON.stringify({ productId: '123' }),
-        body: JSON.stringify({ amount: parseFloat(amount) * 100 }), // تحويل المبلغ إلى سنتات
+        body: JSON.stringify({
+          amount: parseFloat(amount) * 100, // سنتات
+          email: userEmail,
+          productIds,
+        }),
       });
 
       const session = await response.json();
@@ -65,8 +77,6 @@ export default function Checkout() {
     }
   };
 
-
-
   // const createOrder = async () => {
   //   let productIds = [];
   //   cart.forEach((item) => {
@@ -87,7 +97,7 @@ export default function Checkout() {
   //     });
   //   } catch (error) {
   //     console.error("Error:", error);
-  //   } 
+  //   }
   // };
 
   return (
