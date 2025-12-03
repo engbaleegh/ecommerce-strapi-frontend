@@ -13,7 +13,7 @@ const ProductBanner = ({ product }) => {
           className="rounded-lg"
         />
       ) : (
-        <div className="w-[400px] h-[225px] bg-slate-200 rounded-lg animate-pulse"></div>
+        <div className="w-[400px] h-[350px]  bg-slate-200 rounded-lg animate-pulse"></div>
       )}
     </div>
   );

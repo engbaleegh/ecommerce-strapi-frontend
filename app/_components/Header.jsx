@@ -122,7 +122,7 @@ const Header = () => {
               ) : (
                 <div className="flex items-center gap-4">
                   <h2 className="flex gap-1 cursor-pointer">
-                    <ShoppingCart onClick={() => setOpenCart(!openCart)} />(
+                    <ShoppingCart onClick={() => setOpenCart(!openCart)} className="text-black" />(
                     {cart?.length})
                   </h2>
                   <UserButton afterSignOutUrl="/" />
